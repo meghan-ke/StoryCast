@@ -1,0 +1,74 @@
+@use 'colors';
+@use 'typography';
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background-color: colors.$color-background;
+    color: colors.$color-text;
+    font-family: typography.$font-body;
+    font-size: typography.$text-base;
+    line-height: typography.$line-height-body;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: colors.$color-text;
+    font-family: typography.$font-heading;
+    line-height: typography.$line-height-heading;
+}
+
+p {
+    margin-top: 0;
+}
+
+img,
+video {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: colors.$color-primary;
+}
+
+a:hover {
+    color: colors.$color-primary-hover;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+    outline: 3px solid colors.$color-focus;
+    outline-offset: 3px;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+::selection {
+    background-color: colors.$color-primary;
+    color: colors.$color-surface;
+}

@@ -1,0 +1,45 @@
+
+@use 'colors';
+@use 'spacing';
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: spacing.$space-4;
+}
+
+.skip-link {
+  position: absolute;
+  z-index: 1000;
+  top: spacing.$space-2;
+  left: spacing.$space-2;
+  transform: translateY(-160%);
+  padding: spacing.$space-3 spacing.$space-4;
+  background: colors.$color-text;
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid colors.$color-focus;
+  outline-offset: 4px;
+}
+
+::selection {
+  background: colors.$color-primary;
+  color: #ffffff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

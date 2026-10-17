@@ -1,0 +1,375 @@
+
+@use 'colors';
+@use 'typography';
+@use 'spacing';
+
+/* Shared small labels used to introduce sections */
+.eyebrow {
+  margin: 0 0 spacing.$space-4;
+  color: colors.$color-primary;
+  font-size: typography.$text-small;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+/* Homepage hero */
+.hero {
+  padding-top: clamp(4rem, 10vw, 8rem);
+  padding-bottom: clamp(4rem, 8vw, 7rem);
+}
+
+.hero h1 {
+  max-width: 900px;
+  margin: 0;
+  font-family: typography.$font-heading;
+  font-size: clamp(4rem, 9vw, 7rem);
+  font-weight: 400;
+  letter-spacing: -0.075em;
+  line-height: 0.88;
+}
+
+.hero h1 span,
+.about-teaser h2 span {
+  color: colors.$color-primary;
+  font-style: italic;
+}
+
+.hero-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: spacing.$space-8;
+  margin-top: spacing.$space-8;
+}
+
+.hero-description {
+  max-width: 440px;
+  margin: 0;
+  color: colors.$color-text-muted;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  line-height: 1.7;
+}
+
+/* Reusable buttons */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: spacing.$space-3;
+  min-height: 48px;
+  padding: spacing.$space-3 spacing.$space-6;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  font-size: typography.$text-base;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease;
+}
+
+.button-primary {
+  background-color: colors.$color-primary;
+  color: #ffffff;
+}
+
+.button-primary:hover {
+  border-color: colors.$color-primary-hover;
+  background-color: colors.$color-primary-hover;
+  color: #ffffff;
+}
+
+/* Featured stories section */
+.story-section {
+  padding-top: spacing.$space-8;
+  padding-bottom: clamp(4rem, 9vw, 8rem);
+}
+
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: spacing.$space-8;
+  margin-bottom: spacing.$space-8;
+  padding-bottom: spacing.$space-6;
+  border-bottom: 1px solid colors.$color-border;
+}
+
+.section-heading .eyebrow {
+  margin-bottom: spacing.$space-2;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-family: typography.$font-heading;
+  font-size: typography.$heading-lg;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+}
+
+.section-intro {
+  max-width: 300px;
+  margin: 0;
+  color: colors.$color-text-muted;
+  line-height: 1.6;
+}
+
+/* Responsive grid of story cards */
+.story-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: spacing.$space-12 spacing.$space-8;
+  align-items: start;
+}
+
+.story-card {
+  min-width: 0;
+  container-type: inline-size;
+}
+
+/* Visual preview panels.
+   These are intentional CSS illustrations, not photographs. */
+.story-card__visual {
+  position: relative;
+  display: flex;
+  min-height: 240px;
+  aspect-ratio: 1.35 / 1;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: spacing.$space-6;
+  isolation: isolate;
+  color: colors.$color-text;
+  text-decoration: none;
+}
+
+.story-card--featured .story-card__visual {
+  aspect-ratio: 1.65 / 1;
+}
+
+.story-card__visual::before,
+.story-card__visual::after {
+  position: absolute;
+  z-index: -1;
+  content: '';
+  pointer-events: none;
+  transition: transform 350ms ease;
+}
+
+.story-card__visual::before {
+  top: 15%;
+  right: -8%;
+  width: 58%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+.story-card__visual::after {
+  right: 20%;
+  bottom: -35%;
+  width: 60%;
+  aspect-ratio: 1;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+}
+
+.story-card__visual:hover::before {
+  transform: scale(1.08);
+}
+
+.story-card__visual--voice {
+  background: #e6dfd0;
+  color: #315c50;
+}
+
+.story-card__visual--voice::before {
+  background: #b7c4ad;
+  box-shadow: -85px 85px 0 #d2a987;
+}
+
+.story-card__visual--community {
+  background: #d9e0d5;
+  color: #294b3e;
+}
+
+.story-card__visual--community::before {
+  top: 8%;
+  right: 12%;
+  width: 48%;
+  background: #829a82;
+  box-shadow: -95px 90px 0 #b9c6ad;
+}
+
+.story-card__visual--heritage {
+  background: #ead8c3;
+  color: #704a35;
+}
+
+.story-card__visual--heritage::before {
+  top: 18%;
+  right: 8%;
+  width: 48%;
+  border-radius: 48% 48% 5% 5%;
+  background: #c39a72;
+  box-shadow: -95px 70px 0 #d6b69a;
+}
+
+.story-card__visual--change {
+  background: #dce3e8;
+  color: #38556b;
+}
+
+.story-card__visual--change::before {
+  top: 12%;
+  right: 8%;
+  width: 48%;
+  border-radius: 50% 50% 0 0;
+  background: #92aab8;
+  box-shadow: -95px 80px 0 #bac9cf;
+}
+
+.visual-index {
+  font-family: typography.$font-heading;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1;
+}
+
+.visual-caption {
+  align-self: flex-end;
+  max-width: 70%;
+  font-size: typography.$text-small;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+/* Card text and links */
+.story-card__content {
+  padding-top: spacing.$space-4;
+}
+
+.story-type {
+  margin: 0 0 spacing.$space-3;
+  color: colors.$color-text-muted;
+  font-size: typography.$text-small;
+  line-height: 1.5;
+}
+
+.story-card h3 {
+  margin: 0 0 spacing.$space-3;
+  font-family: typography.$font-heading;
+  font-size: clamp(1.5rem, 3vw, 2.15rem);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+}
+
+.story-card h3 a {
+  color: colors.$color-text;
+  text-decoration: none;
+  text-underline-offset: 0.15em;
+}
+
+.story-card h3 a:hover {
+  color: colors.$color-primary;
+  text-decoration: underline;
+}
+
+.story-card__content > p:not(.story-type) {
+  max-width: 470px;
+  margin: 0 0 spacing.$space-4;
+  color: colors.$color-text-muted;
+  line-height: 1.7;
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: spacing.$space-2;
+  min-height: 44px;
+  color: colors.$color-primary;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.25em;
+  transition: text-decoration-color 180ms ease;
+}
+
+.text-link:hover {
+  text-decoration-color: currentColor;
+}
+
+/* About section near the bottom of the homepage */
+.about-teaser {
+  margin-bottom: spacing.$space-16;
+  padding-top: clamp(3rem, 8vw, 6rem);
+  padding-bottom: clamp(3rem, 8vw, 6rem);
+  border-top: 1px solid colors.$color-border;
+  border-bottom: 1px solid colors.$color-border;
+}
+
+.about-teaser h2 {
+  max-width: 850px;
+  margin: 0;
+  font-family: typography.$font-heading;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 400;
+  letter-spacing: -0.065em;
+  line-height: 0.98;
+}
+
+.about-teaser__bottom {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: spacing.$space-8;
+  margin-top: spacing.$space-8;
+}
+
+.about-teaser__bottom p {
+  max-width: 480px;
+  margin: 0;
+  color: colors.$color-text-muted;
+  line-height: 1.7;
+}
+
+/* Footer content alignment */
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: spacing.$space-4;
+  flex-wrap: wrap;
+}
+
+.footer-inner p {
+  margin: 0;
+  color: colors.$color-text-muted;
+  font-size: typography.$text-small;
+}
+
+.footer-inner > a:not(.site-logo) {
+  color: colors.$color-text;
+  text-underline-offset: 0.2em;
+}
+
+/* Container query: adapt a card to its own available width */
+@container (max-width: 340px) {
+  .story-card__visual {
+    min-height: 190px;
+    padding: spacing.$space-4;
+  }
+
+  .story-card__content h3 {
+    font-size: 1.55rem;
+  }
+
+  .visual-caption {
+    font-size: 0.75rem;
+  }
+}
