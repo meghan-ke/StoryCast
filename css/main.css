@@ -752,6 +752,93 @@ button {
   border-radius: 12px;
 }
 
+/* About page: keep the content readable and structured */
+.about-hero,
+.about-mission,
+.about-values,
+.access-section,
+.about-contribute {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 3rem);
+}
+
+.about-hero {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+.about-hero h1 {
+  max-width: 850px;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.12;
+}
+.about-hero p {
+  max-width: 850px;
+}
+
+/* Purpose section */
+.about-mission {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  gap: 2rem;
+  padding-block: 2rem;
+}
+
+.about-values {
+  padding-block: 2rem;
+}
+.about-values__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.about-value {
+  padding: 1.5rem;
+  background: #ffffff;
+  border: 1px solid #d8d8d2;
+  border-radius: 8px;
+}
+.about-value h3 {
+  margin-top: 0.75rem;
+}
+.about-value p {
+  color: #5d5d5d;
+  font-size: 0.875rem;
+}
+
+/* Accessibility features */
+.access-section {
+  padding-block: 2rem;
+}
+.access-section__intro {
+  max-width: 700px;
+}
+
+.access-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.access-item {
+  padding: 1rem;
+  background: #ffffff;
+  border: 1px solid #d8d8d2;
+  border-radius: 6px;
+}
+
+/* Get involved call-to-action */
+.about-contribute {
+  padding-block: 3rem;
+  text-align: center;
+}
+.about-contribute__inner {
+  max-width: 650px;
+  margin-inline: auto;
+}
+
 /* Medium screens and tablets */
 @media (max-width: 760px) {
   .header-inner {
@@ -862,6 +949,25 @@ button {
   }
   .related-story-links {
     grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 760px) {
+  .about-mission {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .about-values__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .access-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 520px) {
+  .about-hero {
+    padding-top: 2rem;
+  }
+  .about-value {
+    padding: 1rem;
   }
 }
 html {

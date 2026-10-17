@@ -141,3 +141,29 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+
+@media (max-width: 760px) {
+  .about-mission {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .about-values__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .access-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .about-hero {
+    padding-top: spacing.$space-8;
+  }
+
+  .about-value {
+    padding: spacing.$space-4;
+  }
+}
+
